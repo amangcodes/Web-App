@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Nutrition Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Food Nutrition Tracker</h1>
+        
+        <!-- Input Form -->
+        <div class="form">
+            <label for="food">Food Item:</label>
+            <select id="food">
+                <option value="paneer">Paneer</option>
+                <option value="soyaChunks">Soya Chunks</option>
+                <option value="rice">Rice</option>
+                <option value="kalaChana">Kala Chana</option>
+                <option value="chickpeas">Chickpeas</option>
+                <option value="roti">Roti</option>
+                <option value="dahi">Dahi</option>
+                <option value="rajma">Rajma</option>
+                <option value="milk">Milk</option>
+                <option value="eggs">Eggs</option>
+                <option value="chicken">Chicken</option>
+                <option value="tea">Tea</option>
+                <option value="rohu">Rohu</option>
+            </select>
+            
+            <label for="quantity">Quantity (g):</label>
+            <input type="number" id="quantity" placeholder="Enter quantity in grams" min="1">
+
+            <button onclick="addFood()">Add Food</button>
+        </div>
+
+        <!-- Food List -->
+        <div class="food-list">
+            <h2>Food List</h2>
+            <ul id="food-list"></ul>
+        </div>
+
+        <!-- Totals -->
+        <div class="totals">
+            <h3>Total Nutrition for the Day</h3>
+            <p>Calories: <span id="total-calories">0</span> kcal</p>
+            <p>Protein: <span id="total-protein">0</span> g</p>
+            <p>Fats: <span id="total-fats">0</span> g</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="icon-btn" onclick="resetProgress()" title="Reset"><i class="fas fa-sync-alt"></i></button>
+            <button class="icon-btn" onclick="storeProgress()" title="Store Progress"><i class="fas fa-save"></i></button>
+            <button class="icon-btn" onclick="seeProgress()" title="See Progress"><i class="fas fa-chart-line"></i></button>
+        </div>
+    </div>
+
+    <!-- Progress Page -->
+    <div id="progress-page" class="progress-page" style="display: none;">
+        <h1>Your Daily Progress</h1>
+        <button onclick="goBack()">Back</button>
+        <h3>Progress History:</h3>
+
+        <!-- Table for Progress History -->
+        <table id="progress-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Calories</th>
+                    <th>Protein</th>
+                    <th>Fats</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="progress-list">
+                <!-- Dynamic rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
